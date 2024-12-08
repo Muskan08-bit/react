@@ -1,0 +1,97 @@
+What is Emmet ?
+Ans: Emmet is a built in feature in VS code which prevents you from writing the whole code by yourself by providing Emmet abbreviation.
+    Emmet abbreviations are special expressions that convert acronyms into small structured code blocks in languages like HTML, CSS,
+    XML and JSP
+    eg: div>h1>p - creates nested elements
+        div.title - creates element with class
+        div#title - creates element with id
+        h1*4 - creates same element mutliple times
+
+Difference between a library and framework?
+ Ans: The main difference between a library and a framework is that a library provides specific functionality and a framework provides
+    infrastructure to build a complete application
+    A library does not control the flow of application, while a framework does. A framework dictates the flow and calls user-defined code
+    A library gives developers more freedom in organizing their code, while framework dictates the application structure
+    developers build their applications around the framework, often having dependecies on it.
+
+What is CDN? Why do we use it?
+Ans: CDN (Content Delivery Network) is a network of servers that deliver web content to the users around the world. It is designed to
+    deliver content such as Javascript libraries, stylesheets. React and ReactDOM can be loaded from CDN instead of being installed
+    locally. CDNs have servers around the world, so when a user accesses a website then a CDN stores a cached version of the website's
+    content on a server close to the user.
+
+Why is React knows as React ?
+Ans: React is named react because its core principles revolve around enabling applications to effeciently react to changes in data and
+    user interactions. The name reflects its reactive nature and how it updates the user interface dynamically and responsively.
+        Reactive programming concept: React follows a declarative programming paradigm where UI reacts to changes in the application's state
+        or props. When data changes react effeciently updated and renders the components affected by those changes without requiring manual
+        DOM manipulation.
+        Reacting to state changes: The framework is designed to react to changes in 
+            state: internal data maintained by components
+            props: data passed to components from parents. When these value changes, react automatically re-renders the relevant components
+            to reflect the new state in the UI.
+        The Virtual DOM's reactivity: React uses virtual DOM to opitimize updates. Instead of directly updating the DOM, React creates
+        a light-weight inmemory representation of the DOM and calculate the minimals required. This makes the framework ectremely 
+        efficient at reacting to changes
+        User interactions: react handles user interactions (eg: click, form submissions) seamlessly, updating the UI to react to the 
+        users interactions without unnecessary re-renders or performance bottlenecks
+
+What is crossorigin in script tag?
+Ans: The crossorigin attribute specifies how the browser handles the request from script in terms of CORS (crossorgin resource sharing)
+    This attribute is used when you are loading scripts from a different origin(eg: a CDN server or a external server) to ensure
+    they are fetched and handled properly.
+    In react project,
+    1. When you are importing libraries from CDN, the crossorgin attribute ensures proper handling of CORS requests
+    2. It plays role in security measures like SRI, protecting your app from temepered and malicious scripts.
+    3. For app using server side rendering (SSR) or external APIs, understanding crossorgin is important when dealing with external
+        resources
+
+What is differnce between React and ReactDOM?
+Ans: The differnce between React and ReactDOM lies in their purpose, and role within the React ecosystem. Both are part of react 
+    library but used for different purposes
+    React purpose: It is core library that provides the tools to create user interfaces by building and managing components
+    ReactDOM purpose: It is specifically used for rendering react components to the DOM in web applications
+    React focus: provides component logic, state and cycle methods
+    ReactDOM focus: focus on rendering components in a browser environment
+    React environment: platform-independent
+    ReactDOM environment: browser specific(web applications)
+    React Usage: used to create components and manage their behaviour
+    ReactDOM usage: used to render components to the DOM and manage DOM updates
+    React eg: useState, useEffect, JSX components
+    ReactDOM eg: ReactDOM.render, ReactDOM.createRoot
+
+What is difference between react.development.js and react.production.js files via CDN ?
+Ans: The difference between react.development.js and react.production.js lies in their usage and the optimization they provide for 
+    developers versus production environments
+    react.development.js: 
+        purpose: this version of react is intended for development and debugging process
+        error messages: gives detailed error messages
+        warnings: include run time warnings eg: for deprecated features and improper usage
+        performance: slower due to run time checks
+        file size: larger due to debugging features
+        developer tools: helpful stack traces and logs
+    react.production.js:
+        purpose: this version of react is opitimized for production environments to improve performance and minimum file size
+        error messages: no error messages(silent errors)
+        warnings: includes no warnings are shown
+        performance: faster as runtime checks are removed
+        file size: smaller due to minimification
+        developer tools: no developer tools or logs 
+
+What is async and defer?
+Ans: these are boolean attributes which are used along with script tags to load the external scripts effeciently to our web page.
+    When browser is loading the web page and it parsing the html line by line suddenly, encounters a script tag then browser stop the 
+    parsing at that time and then fetches the script from network and gets into browser and runs it there and html parsing will again
+    start only after the script completely executed, therefore js is blocking the rendering of html during script execution time
+    Now the case while using async attribute: meanwhile the html parsing is going on, any of script with async attri are fetched
+    from the network asynchronously along with the html parsing. so, as soon as scripts are fetched and available in the browser
+    the html parsing stops and the scripts are executed then and there and once the script is executed then html parsing continues
+    regular
+    Now the case of differ attribute: the html parsing goes on continous and the script tag fetched from network parallely and the
+    scripts only will executed once, the html parsing is completes. So, it does not matter when the script is available in browser
+    unlike async tag
+    The important thing is the async attributes does not gurantee the order of execution of the scripts but defer does
+    suppose, if you put async attri in multiple scripts which are dependent on each other then it will not gurantee that these scripts
+    will be executed in particular order and this may broke the code
+    suppose, you have to load some external scripts sucha as google analytical scripts which are independent of our normal code then, 
+    you can use async attri otherwise it is mostly wise to use defer attribute because it maintains the order of execution of the script
